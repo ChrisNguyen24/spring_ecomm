@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>  
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="">
 	<ul class="breadcrumb">
 		<li><a href="/home">Home</a> <span class="divider">/</span></li>
 		<li class="active">SHOPPING CART</li>
 	</ul>
 	<h3>
-		SHOPPING CART [ <small>3 Item(s) </small>]<a href="/home"
+		SHOPPING CART [ <small> <c:out value="${cartProduct.size()}" /> Item(s) </small>]<a href="/home"
 			class="btn btn-large pull-right"><i class="icon-arrow-left"></i>
 			Continue Shopping </a>
 	</h3>
@@ -119,7 +120,7 @@
 					<td>$<c:out value="${row.item.price}" /></td>
 					<!-- <td>$25.00</td>
 					<td>$15.00</td> -->
-					<td>$110.00</td>
+					<td>$ <fmt:formatNumber type="number" maxFractionDigits="3" value="${row.quantity * row.item.price}" /></td>
 				</tr>	
 			</c:forEach>
 				
@@ -188,7 +189,7 @@
 					<td colspan="6" style="text-align: right">
 						<strong>TOTAL</strong></td>
 					<td class="label label-important" style="display: block"><strong>
-							$155.00 </strong></td>
+							$ <fmt:formatNumber type="number" maxFractionDigits="3" value="${total}" /> </strong></td>
 				</tr>
 			</tbody>
 		</table>

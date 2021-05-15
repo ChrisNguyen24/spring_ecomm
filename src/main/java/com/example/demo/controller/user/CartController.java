@@ -31,11 +31,15 @@ public class CartController {
 
 	@RequestMapping(value = {"/cart" },method = RequestMethod.GET)
 	 public String index(ModelMap model, HttpSession httpSession) { 
+		float total =0;
 		if(httpSession.getAttribute("cart")!=null) {
 			List<CartItem> ls = (List<CartItem>) httpSession.getAttribute("cart");
 			model.addAttribute("cartProduct",ls);
+			for(CartItem i:ls) {
+				total += i.getQuantity()*i.getItem().getPrice();
+			}
 		}
-		
+		model.addAttribute("total", total);
 		return "home.cart"; 
 	 }
 	 
@@ -59,6 +63,7 @@ public class CartController {
 				int qty = ls.get(index).getQuantity()+1;
 				ls.get(index).setQuantity(qty);
 			}
+			
 			//model.addAttribute("cartProduct",ls);			
 		}else System.out.println("cart null");
 		return "redirect:/cart";

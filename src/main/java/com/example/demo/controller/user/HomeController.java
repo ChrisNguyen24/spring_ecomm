@@ -33,7 +33,11 @@ public class HomeController {
 	ItemService itemService;
 	
 	@GetMapping(value={"", "/", "/home"})
-	public String index(ModelMap model) { 
+	public String index(ModelMap model, HttpSession httpSession) { 
+		if(httpSession.getAttribute("cart")!=null) {
+			List<CartItem> ls = (List<CartItem>) httpSession.getAttribute("cart");
+			model.addAttribute("cartProduct",ls);
+		}
 		List<Category> list =  categoryService.findAll();
 		model.addAttribute("Categories",list);	
 		

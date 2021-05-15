@@ -72,7 +72,7 @@
 							
 							<a href="/cart">
 								<span class="btn btn-mini btn-primary"><i
-								class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your
+								class="icon-shopping-cart icon-white"></i> [ <c:out value="${cartProduct.size()}" /> ] Itemes in your
 								cart </span> 
 							</a>
 					</div>
