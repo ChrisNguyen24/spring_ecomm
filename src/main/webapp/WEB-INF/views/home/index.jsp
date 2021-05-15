@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>  
 <div class="span9">
 	<div class="well well-small">
 		<h4>
@@ -240,104 +242,29 @@
 		</div>
 	</div>
 	<h4>Latest Products</h4>
+	
 	<ul class="thumbnails">
-		<li class="span3">
-			<div class="thumbnail">
-				<a href="/details"><img
-					src="${pageContext.request.contextPath }/resources/user/themes/images/products/6.jpg" alt=""></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text.</p>
+		<c:forEach var="row" items="${products}">
+		
+			<li class="span3">
+				<div class="thumbnail">
+					<a href="/details"><img alt="img" src="${pageContext.request.contextPath }/uploads/images/${row.path}" width="120px"></a>
+					<div class="caption">
+						<h5><c:out value="${row.title}" /></h5>
+						<p><c:out value="${row.description}" /></p>
+	
+						<h4 style="text-align: center">
+							<a class="btn" href="/details"> <i
+								class="icon-zoom-in"></i></a> <a class="btn" href="/addCart/${row.id}">Add to <i
+								class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
+								href="#">$<c:out value="${row.price}" /></a>
+						</h4>
+					</div>
+				</div>
+			</li>
+		
+		</c:forEach>
 
-					<h4 style="text-align: center">
-						<a class="btn" href="/details"> <i
-							class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-							class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-							href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a href="/details"><img
-					src="${pageContext.request.contextPath }/resources/user/themes/images/products/7.jpg" alt=""></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text.</p>
-					<h4 style="text-align: center">
-						<a class="btn" href="/details"> <i
-							class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-							class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-							href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a href="/details"><img
-					src="${pageContext.request.contextPath }/resources/user/themes/images/products/8.jpg" alt=""></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text.</p>
-					<h4 style="text-align: center">
-						<a class="btn" href="/details"> <i
-							class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-							class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-							href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a href="/details"><img
-					src="${pageContext.request.contextPath }/resources/user/themes/images/products/9.jpg" alt=""></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text.</p>
-					<h4 style="text-align: center">
-						<a class="btn" href="/details"> <i
-							class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-							class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-							href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a href="/details"><img
-					src="${pageContext.request.contextPath }/resources/user/themes/images/products/10.jpg" alt=""></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text.</p>
-					<h4 style="text-align: center">
-						<a class="btn" href="/details"> <i
-							class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-							class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-							href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
-		<li class="span3">
-			<div class="thumbnail">
-				<a href="/details"><img
-					src="${pageContext.request.contextPath }/resources/user/themes/images/products/11.jpg" alt=""></a>
-				<div class="caption">
-					<h5>Product name</h5>
-					<p>Lorem Ipsum is simply dummy text.</p>
-					<h4 style="text-align: center">
-						<a class="btn" href="/details"> <i
-							class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-							class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-							href="#">$222.00</a>
-					</h4>
-				</div>
-			</div>
-		</li>
 	</ul>
 
 </div>

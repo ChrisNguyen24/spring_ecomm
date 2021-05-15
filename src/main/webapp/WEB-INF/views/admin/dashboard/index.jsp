@@ -93,7 +93,7 @@
 									<td class="  sorting_1"><c:out value="${row.id}" /></td>
 									<td class=" "><c:out value="${row.name}" /></td>
 									<td class=" "> <span class="label label-info" style="margin-right:5px">0</span>
-										<a href="#productnew" role="button" data-toggle="modal" class="btn btn-primary btn-mini" style="padding-right:0">Create item ${row.id}</a>  
+										<a href="#productnew" role="button" data-toggle="modal" class="btn btn-primary btn-mini" style="">Create item ${row.id}</a>  
 										
 										<div id="productnew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true" style="display: none;">
 										  <div class="modal-header">

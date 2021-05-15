@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -299,9 +300,10 @@
 								<li><a href="products.html"><i
 										class="icon-chevron-right"></i>Khao Shong (11)</a></li>
 							</ul></li>
-						<li><a href="products.html">HEALTH & BEAUTY [18]</a></li>
-						<li><a href="products.html">SPORTS & LEISURE [58]</a></li>
-						<li><a href="products.html">BOOKS & ENTERTAINMENTS [14]</a></li>
+						<c:forEach var="row" items="${Categories}">
+							<li><a href="products.html"> <c:out value = "${fn:toUpperCase(row.name)}" /></a></li>
+							
+						</c:forEach>
 					</ul>
 					<br />
 					<div class="thumbnail">

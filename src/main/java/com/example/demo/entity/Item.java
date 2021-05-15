@@ -36,9 +36,19 @@ public class Item implements Serializable{
 	@Column(name = "stock")
 	private int stock;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
+
+	public Item(int id, String title, String description, float price, String path, int stock) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.price = price;
+		this.path = path;
+		this.stock = stock;
+	}
 
 	public Item() {
 		super();
@@ -104,5 +114,13 @@ public class Item implements Serializable{
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price + ", path="
+				+ path + ", stock=" + stock + ", category=" + category + "]";
+	}
+	
+	
 	
 }

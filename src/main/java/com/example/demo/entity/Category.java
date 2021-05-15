@@ -85,5 +85,13 @@ public class Category implements Serializable {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", isActive=" + isActive
+				+ ", items=" + items + "]";
+	}
+	
+	
 	
 }

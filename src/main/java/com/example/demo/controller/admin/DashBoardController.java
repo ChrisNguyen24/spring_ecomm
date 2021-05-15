@@ -55,18 +55,6 @@ public class DashBoardController {
 	}
 	
 	
-	@RequestMapping("admin/products")
-	public String listProduct(ModelMap model, HttpSession session) {
-		if(session.getAttribute("admin")==null || session.getAttribute("admin")=="") {
-			return "redirect:/admin/login";
-		}
-		Item i = new Item();
-		model.addAttribute("item", i);
-		model.addAttribute("categories",categoryService.findAll());
-				
-		return "admin.dashboard.product";
-	}
-	
 	
 	
 	@RequestMapping("admin/orders")

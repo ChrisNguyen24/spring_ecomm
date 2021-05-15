@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 //
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 //
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.common.GooglePojo;
 import com.example.demo.common.GoogleUtils;
 import com.example.demo.entity.Account;
-
+import com.example.demo.entity.CartItem;
 import com.example.demo.service.account.AccountService;
 
 @Controller
@@ -51,6 +53,11 @@ public class BaseController {
 	    session.setAttribute("username", googlePojo.getEmail());
 	    session.setAttribute("userImg", googlePojo.getPicture());
 	    session.setAttribute("userId", googlePojo.getId());
+	    
+	    List<CartItem> cart = new ArrayList<>();
+	    session.setAttribute("cart", cart);
+	    System.out.println("Login thanh cong");
+	    
 	    System.out.println(googlePojo.getEmail()+"\n"+googlePojo.getId());
 	    
 	    Optional<Account> u = accountService.findById(googlePojo.getEmail());

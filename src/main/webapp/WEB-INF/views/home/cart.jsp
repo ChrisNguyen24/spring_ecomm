@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>  
 <div class="">
 	<ul class="breadcrumb">
 		<li><a href="/home">Home</a> <span class="divider">/</span></li>
@@ -88,37 +90,40 @@
 					<th>Description</th>
 					<th>Quantity/Update</th>
 					<th>Price</th>
-					<th>Discount</th>
-					<th>Tax</th>
+					<!-- <th>Discount</th>
+					<th>Tax</th> -->
 					<th>Total</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><img width="60" src="themes/images/products/4.jpg" alt=""></td>
-					<td>MASSA AST<br>Color : black, Material : metal
+			<c:forEach var="row" items="${cartProduct}">
+					<tr>
+					<td><img src="${pageContext.request.contextPath }/uploads/images/${row.item.path}" width="70px" alt="img"></td>
+					<td><c:out value="${row.item.title}" /><br>Color : black, Material : metal
 					</td>
 					<td>
 						<div class="input-append">
-							<input class="span1" style="max-width: 34px" placeholder="1"
-								id="appendedInputButtons" size="16" type="text">
-							<button class="btn" type="button">
+							<input class="span1" style="max-width: 34px" placeholder="qty" value=<c:out value="${row.quantity}" /> 
+								id="appendedInputButtons" size="16" type="number" required="required" min="1" step="any" value="1">
+							<!-- <button class="btn" type="button">
 								<i class="icon-minus"></i>
 							</button>
 							<button class="btn" type="button">
 								<i class="icon-plus"></i>
-							</button>
+							</button> -->
 							<button class="btn btn-danger" type="button">
 								<i class="icon-remove icon-white"></i>
 							</button>
 						</div>
 					</td>
-					<td>$120.00</td>
-					<td>$25.00</td>
-					<td>$15.00</td>
+					<td>$<c:out value="${row.item.price}" /></td>
+					<!-- <td>$25.00</td>
+					<td>$15.00</td> -->
 					<td>$110.00</td>
-				</tr>
-				<tr>
+				</tr>	
+			</c:forEach>
+				
+				<!-- <tr>
 					<td><img width="60" src="themes/images/products/8.jpg" alt=""></td>
 					<td>MASSA AST<br>Color : black, Material : metal
 					</td>
@@ -165,9 +170,9 @@
 					<td>$25.00</td>
 					<td>$15.00</td>
 					<td>$110.00</td>
-				</tr>
+				</tr> -->
 	
-				<tr>
+				<!-- <tr>
 					<td colspan="6" style="text-align: right">Total Price:</td>
 					<td>$228.00</td>
 				</tr>
@@ -178,10 +183,10 @@
 				<tr>
 					<td colspan="6" style="text-align: right">Total Tax:</td>
 					<td>$31.00</td>
-				</tr>
+				</tr> -->
 				<tr>
-					<td colspan="6" style="text-align: right"><strong>TOTAL
-							($228 - $50 + $31) =</strong></td>
+					<td colspan="6" style="text-align: right">
+						<strong>TOTAL</strong></td>
 					<td class="label label-important" style="display: block"><strong>
 							$155.00 </strong></td>
 				</tr>
@@ -210,7 +215,7 @@
 		<table class="table table-bordered">
 			<tbody>
 				<tr>
-					<th>ESTIMATE YOUR SHIPPING</th>
+					<th>SHIPMENT</th>
 				</tr>
 				<tr>
 					<td>
@@ -223,7 +228,7 @@
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="inputPost">Post Code/
-									Zipcode </label>
+									Address </label>
 								<div class="controls">
 									<input type="text" id="inputPost" placeholder="Postcode">
 								</div>

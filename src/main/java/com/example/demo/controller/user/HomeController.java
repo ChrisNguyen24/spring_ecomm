@@ -1,5 +1,8 @@
 package com.example.demo.controller.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.entity.CartItem;
+import com.example.demo.entity.Category;
+import com.example.demo.entity.Item;
 import com.example.demo.service.account.AccountService;
+import com.example.demo.service.category.CategoryService;
+import com.example.demo.service.product.ItemService;
 
 
 @Controller
@@ -17,9 +25,22 @@ public class HomeController {
 	@Autowired
 	AccountService accountService;
 	
-	@GetMapping("/home")
-	public String index() { 
-		return "home.index"; 
+	@Autowired
+	CategoryService categoryService;
+	
+
+	@Autowired
+	ItemService itemService;
+	
+	@GetMapping(value={"", "/", "/home"})
+	public String index(ModelMap model) { 
+		List<Category> list =  categoryService.findAll();
+		model.addAttribute("Categories",list);	
+		
+		List<Item> items = itemService.findAll();
+		model.addAttribute("products",items);	
+		
+		return "home.index";
 	}
 	
 	@PostMapping("/checklogin")
@@ -30,7 +51,8 @@ public class HomeController {
 		
 		if(accountService.checkLogin(username, password)) {
 			session.setAttribute("username",username);
-			/* model.addAttribute("ITEMS", itemService.findAll()); */
+			List<CartItem> cart = new ArrayList<>();
+			session.setAttribute("cart", cart);
 			System.out.println("Login thanh cong");
 			return "redirect:/home";
 			//user
@@ -45,6 +67,9 @@ public class HomeController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("username");
+		session.removeAttribute("userImg");
+		session.removeAttribute("userId");
+		session.removeAttribute("cart");
 		return "redirect:/home";
 	}
 
