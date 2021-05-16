@@ -14,8 +14,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.example.demo.entity.CartItem;
+import com.example.demo.entity.Category;
 import com.example.demo.entity.Item;
 import com.example.demo.service.account.AccountService;
+import com.example.demo.service.category.CategoryService;
 import com.example.demo.service.product.ItemService;
 
 
@@ -27,7 +29,7 @@ public class CartController {
 	ItemService itemService;
 	
 	@Autowired
-	AccountService accountService;
+	CategoryService categoryService;
 
 	@RequestMapping(value = {"/cart" },method = RequestMethod.GET)
 	 public String index(ModelMap model, HttpSession httpSession) { 
@@ -40,6 +42,10 @@ public class CartController {
 			}
 		}
 		model.addAttribute("total", total);
+		
+		//getcategory
+		List<Category> list =  categoryService.findAll();
+		model.addAttribute("Categories",list);	
 		return "home.cart"; 
 	 }
 	 

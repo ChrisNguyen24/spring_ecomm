@@ -20,5 +20,9 @@
     <definition name="home.register" extends="template_user">
         <put-attribute name="content" value="/WEB-INF/views/home/register.jsp" />
     </definition>
+    <definition name="home.categoryproduct" extends="template_user">
+        <put-attribute name="content" value="/WEB-INF/views/home/product_category.jsp" />
+    </definition>
+    
 </tiles-definitions>
                 

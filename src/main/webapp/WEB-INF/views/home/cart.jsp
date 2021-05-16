@@ -189,7 +189,7 @@
 					<td colspan="6" style="text-align: right">
 						<strong>TOTAL</strong></td>
 					<td class="label label-important" style="display: block"><strong>
-							$ <fmt:formatNumber type="number" maxFractionDigits="3" value="${total}" /> </strong></td>
+							$<fmt:formatNumber type="number" maxFractionDigits="3" value="${total}" /> </strong></td>
 				</tr>
 			</tbody>
 		</table>

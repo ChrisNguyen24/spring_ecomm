@@ -34,18 +34,26 @@ public class HomeController {
 	
 	@GetMapping(value={"", "/", "/home"})
 	public String index(ModelMap model, HttpSession httpSession) { 
+		float total = 0;
 		if(httpSession.getAttribute("cart")!=null) {
 			List<CartItem> ls = (List<CartItem>) httpSession.getAttribute("cart");
 			model.addAttribute("cartProduct",ls);
+			for(CartItem i:ls) {
+				total += i.getQuantity()*i.getItem().getPrice();
+			}
 		}
+		model.addAttribute("total", total);
+		
+		//getcategory
 		List<Category> list =  categoryService.findAll();
 		model.addAttribute("Categories",list);	
-		
+		//items
 		List<Item> items = itemService.findAll();
 		model.addAttribute("products",items);	
 		
 		return "home.index";
 	}
+		
 	
 	@PostMapping("/checklogin")
 	public String checkLogin(ModelMap model,

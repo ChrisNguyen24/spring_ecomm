@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>  
 <div class="span9">
@@ -247,8 +247,8 @@
 		<c:forEach var="row" items="${products}">
 		
 			<li class="span3">
-				<div class="thumbnail">
-					<a href="/details"><img alt="img" src="${pageContext.request.contextPath }/uploads/images/${row.path}" width="120px"></a>
+				<div class="thumbnail" style="height:280px">
+					<a href="/detail/${row.id}"><img alt="img" src="${pageContext.request.contextPath }/uploads/images/${row.path}" width="120px"></a>
 					<div class="caption">
 						<h5><c:out value="${row.title}" /></h5>
 						<p><c:out value="${row.description}" /></p>
