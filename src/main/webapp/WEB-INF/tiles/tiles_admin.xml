@@ -17,7 +17,7 @@
 	<definition name="admin.dashboard.product" extends="template_admin">
         <put-attribute name="content" value="/WEB-INF/views/admin/dashboard/product.jsp" />
     </definition>
-    <definition name="admin.dashboard.order" extends="template_admin">
+    <definition name="admin.order" extends="template_admin">
         <put-attribute name="content" value="/WEB-INF/views/admin/dashboard/order.jsp" />
     </definition>
     <definition name="admin.login" extends="template_empty">

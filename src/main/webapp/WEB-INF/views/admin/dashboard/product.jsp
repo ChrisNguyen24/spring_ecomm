@@ -11,7 +11,7 @@
 			<div class="span12">
 				<div class="table-toolbar">
 					<div class="btn-group">
-						
+					
 					<a href="#productnew" role="button" data-toggle="modal" ><span class="btn btn btn-success">Create Product   <i class="icon-plus icon-white"></i></span></a>			
 					<div id="productnew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true" style="display: none;">
 					  <div class="modal-header">

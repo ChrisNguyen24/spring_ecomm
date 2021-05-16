@@ -63,11 +63,11 @@ public class DashBoardController {
 	}
 	
 	
-	@RequestMapping("admin/orders")
-	public String listOrder(ModelMap model, HttpSession session) {
-		if(session.getAttribute("admin")==null || session.getAttribute("admin")=="") {
-			return "redirect:/admin/login";
-		}
-		return "admin.dashboard.order";
-	}
+//	@RequestMapping("admin/orders")
+//	public String listOrder(ModelMap model, HttpSession session) {
+//		if(session.getAttribute("admin")==null || session.getAttribute("admin")=="") {
+//			return "redirect:/admin/login";
+//		}
+//		return "admin.dashboard.order";
+//	}
 }
