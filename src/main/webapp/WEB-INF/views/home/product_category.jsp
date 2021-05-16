@@ -46,7 +46,7 @@
 				<h3><c:out value="${row.title}" /></h3>
 				<hr class="soft">
 				<h5><c:out value="${row.category.name}" /></h5>
-				<p><c:out value="${row.description}" /></p>
+				<p style="white-space: nowrap;   width: 200px;  overflow: hidden;  text-overflow: ellipsis;"><c:out value="${row.description}" /></p>
 				<a class="btn btn-small pull-right" href="product_details.html">View
 					Details</a> <br class="clr">
 			</div>
@@ -70,10 +70,10 @@
 			<c:forEach var="row" items="${CItem}">
 				<li class="span3">
 					<div class="thumbnail">
-						<a href="product_details.html"><img alt="img" src="${pageContext.request.contextPath }/uploads/images/${row.path}" width="120px"></a>
+						<a href="product_details.html"><img alt="img" src="${pageContext.request.contextPath }/uploads/images/${row.path}" style="height:120px"></a>
 						<div class="caption">
 							<h5><c:out value="${row.title}" /></h5>
-							<p><c:out value="${row.description}" /></p>
+							<p style="white-space: nowrap;   width: 200px;  overflow: hidden;  text-overflow: ellipsis;"><c:out value="${row.description}" /></p>
 							<h4 style="text-align: center">
 								<a class="btn" href="product_details.html"> <i
 									class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i

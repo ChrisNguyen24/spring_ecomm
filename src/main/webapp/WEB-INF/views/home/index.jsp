@@ -248,10 +248,12 @@
 		
 			<li class="span3">
 				<div class="thumbnail" style="height:280px">
-					<a href="/detail/${row.id}"><img alt="img" src="${pageContext.request.contextPath }/uploads/images/${row.path}" width="120px"></a>
+					<a href="/detail/${row.id}"><img alt="img" src="${pageContext.request.contextPath }/uploads/images/${row.path}" style="height:120px"></a>
 					<div class="caption">
 						<h5><c:out value="${row.title}" /></h5>
-						<p><c:out value="${row.description}" /></p>
+						<p style="white-space: nowrap;   width: 200px;  overflow: hidden;  text-overflow: ellipsis;">
+							<c:out value="${row.description}" />
+						</p>
 	
 						<h4 style="text-align: center">
 							<a class="btn" href="/details"> <i

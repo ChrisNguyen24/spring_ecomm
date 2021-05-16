@@ -148,7 +148,7 @@
 								<td class="center "><c:out value="${row.category.name}" /></td>
 								<td class="center ">
 									<button class="btn btn-success btn-mini">Edit</button>
-									<button class="btn btn-danger btn-mini" onclick="return confirm('Are you sure ?')">Delete</button>
+									<a href="/remove-products/${row.id }" class="btn btn-danger btn-mini" onclick="return confirm('Are you sure ?')">Delete</a>
 								</td>
 							</tr>
 						</c:forEach>	

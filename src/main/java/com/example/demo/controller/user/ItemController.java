@@ -45,9 +45,12 @@ public class ItemController {
 		 for(Item i:a) {
 			 citem.add(i);
 			 System.out.println(i.getTitle());
-		 }
-
+		 }	 
 		 model.addAttribute("RItem", citem);
+		 
+		//getcategory
+		 List<Category> list =  categoryService.findAll();
+		 model.addAttribute("Categories",list);
 		 
 		 return "home.detail"; 
 	 }

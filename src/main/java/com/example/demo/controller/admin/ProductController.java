@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -67,6 +68,13 @@ public class ProductController implements ServletContextAware{
 		System.out.println(item.toString()+"\n---");
 		itemService.save(item);
 		System.out.println("saved item success");
+		return "redirect:/admin/products";
+	}
+	
+	@RequestMapping(value={"/remove-products/{id}"} ,method = RequestMethod.GET)
+	public String delProduct(@PathVariable("id") int id) {
+		itemService.deleteById(id);
+		System.out.println("removed item success");
 		return "redirect:/admin/products";
 	}
 

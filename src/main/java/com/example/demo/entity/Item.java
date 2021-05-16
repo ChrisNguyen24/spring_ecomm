@@ -21,16 +21,16 @@ public class Item implements Serializable{
 	@Column(name = "id")
     private int id;
 	
-	@Column(name = "title", length=50)
+	@Column(name = "title", length=250)
 	private String title;
 	
-	@Column(name = "description", length=50)
+	@Column(name = "description", length=250)
 	private String description;
 	
 	@Column(name = "price")
 	private float price;
 	
-	@Column(name = "path", length=50)
+	@Column(name = "path", length=250)
 	private String path;
 	
 	@Column(name = "stock")
