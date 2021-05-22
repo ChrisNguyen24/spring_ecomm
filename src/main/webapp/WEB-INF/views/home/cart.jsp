@@ -193,61 +193,11 @@
 				</tr>
 			</tbody>
 		</table>
-		<table class="table table-bordered">
-			<tbody>
-				<tr>
-					<td>
-						<form class="form-horizontal">
-							<div class="control-group">
-								<label class="control-label"><strong> VOUCHERS
-										CODE: </strong> </label>
-								<div class="controls">
-									<input type="text" class="input-medium" placeholder="CODE">
-									<button type="submit" class="btn">ADD</button>
-								</div>
-							</div>
-						</form>
-					</td>
-				</tr>
-	
-			</tbody>
-		</table>
-
-		<table class="table table-bordered">
-			<tbody>
-				<tr>
-					<th>SHIPMENT</th>
-				</tr>
-				<tr>
-					<td>
-						<form class="form-horizontal">
-							<div class="control-group">
-								<label class="control-label" for="inputCountry">Country </label>
-								<div class="controls">
-									<input type="text" id="inputCountry" placeholder="Country">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="inputPost">Post Code/
-									Address </label>
-								<div class="controls">
-									<input type="text" id="inputPost" placeholder="Postcode">
-								</div>
-							</div>
-							<div class="control-group">
-								<div class="controls">
-									<button type="submit" class="btn">ESTIMATE</button>
-								</div>
-							</div>
-						</form>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		
 		<div class="row">
 			<a href="/home" class="btn btn-large"><i
 				class="icon-arrow-left"></i> Continue Shopping </a> 
-			<a href="login.html"
+			<a href="/order"
 				class="btn btn-large pull-right">Next <i class="icon-arrow-right"></i></a>
 		</div>
 	</div>

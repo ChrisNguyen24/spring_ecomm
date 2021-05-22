@@ -359,6 +359,7 @@
 		<!-- Container End -->
 	</div>
 	<!-- Placed at the end of the document so the pages load faster ============================================= -->
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/user/themes/js/jquery.js" type="text/javascript"></script>
 	<script src="${pageContext.request.contextPath }/resources/user/themes/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="${pageContext.request.contextPath }/resources/user/themes/js/google-code-prettify/prettify.js"></script>

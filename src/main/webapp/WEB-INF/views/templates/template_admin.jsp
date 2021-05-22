@@ -155,8 +155,8 @@
                         <li>
                             <a href="/admin/products"><i class="icon-chevron-right"></i> Product</a>
                         </li>
-                        <li>
-                            <a href="/admin/orders"><i class="icon-chevron-right"></i> <span class="badge badge-info pull-right">27</span> Order</a>
+                        <li id="get-orders">
+                            <a href="/admin/orders" ><i class="icon-chevron-right"></i> <span class="badge badge-info pull-right">27</span> Order</a>
                         </li>
                         <li>
                             <a href="form.html"><i class="icon-chevron-right"></i> Shipment</a>
@@ -181,12 +181,10 @@
             </footer>
         </div>
         <!--/.fluid-container-->
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath }/resources/admin/vendors/jquery-1.9.1.js"></script>
         <script src="${pageContext.request.contextPath }/resources/admin/bootstrap/js/bootstrap.min.js"></script>
         <script src="${pageContext.request.contextPath }/resources/admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
-
-
         <script src="${pageContext.request.contextPath }/resources/admin/assets/scripts.js"></script>
         <script src="${pageContext.request.contextPath }/resources/admin/assets/DT_bootstrap.js"></script>
         <script>

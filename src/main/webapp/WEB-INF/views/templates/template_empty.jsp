@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<c:url var="home" value="/" scope="request" />
     <title>Admin Login</title>
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath }/resources/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -22,7 +23,9 @@
       
 
     </div> <!-- /container -->
-    <script src="${pageContext.request.contextPath }/resources/admin/vendors/jquery-1.9.1.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/admin/bootstrap/js/bootstrap.min.js"></script>
+    <script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/admin/vendors/jquery-1.9.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/admin/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -23,6 +23,9 @@
     <definition name="home.categoryproduct" extends="template_user">
         <put-attribute name="content" value="/WEB-INF/views/home/product_category.jsp" />
     </definition>
+    <definition name="home.order" extends="template_user">
+        <put-attribute name="content" value="/WEB-INF/views/home/order.jsp" />
+    </definition>
     
 </tiles-definitions>
                 
