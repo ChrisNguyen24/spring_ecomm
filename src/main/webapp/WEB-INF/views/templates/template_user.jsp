@@ -7,36 +7,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Ecommerce BoEC</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=""> 
-<meta name="author" content="">
-<meta name="google-signin-client_id" content="233610236874-525nhkem2k4e0dj4srmphovrvasegql1.apps.googleusercontent.com">
-
-
-<!-- Bootstrap style -->
-<link id="callCss" rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/user/themes/bootshop/bootstrap.min.css" media="screen" />
-<link href="${pageContext.request.contextPath }/resources/user/themes/css/base.css" rel="stylesheet" media="screen" />
-<!-- Bootstrap style responsive -->
-<link href="${pageContext.request.contextPath }/resources/user/themes/css/bootstrap-responsive.min.css" rel="stylesheet" />
-<link href="${pageContext.request.contextPath }/resources/user/themes/css/font-awesome.css" rel="stylesheet"
-	type="text/css">
-<!-- Google-code-prettify -->
-<link href="${pageContext.request.contextPath }/resources/user/themes/js/google-code-prettify/prettify.css"
-	rel="stylesheet" />
-<!-- fav and touch icons -->
-<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/user/themes/images/ico/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="${pageContext.request.contextPath }/resources/user/themes/images/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="${pageContext.request.contextPath }/resources/user/themes/images/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="${pageContext.request.contextPath }/resources/user/themes/images/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="${pageContext.request.contextPath }/resources/user/themes/images/ico/apple-touch-icon-57-precomposed.png">
-<style type="text/css" id="enject"></style>
+	<meta charset="utf-8">
+	<title>Ecommerce BoEC</title>
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content=""> 
+	<meta name="author" content="">
+	<meta name="google-signin-client_id" content="233610236874-525nhkem2k4e0dj4srmphovrvasegql1.apps.googleusercontent.com">
+	
+	
+	<!-- Bootstrap style -->
+	<link id="callCss" rel="stylesheet"
+		href="${pageContext.request.contextPath }/resources/user/themes/bootshop/bootstrap.min.css" media="screen" />
+	<link href="${pageContext.request.contextPath }/resources/user/themes/css/base.css" rel="stylesheet" media="screen" />
+	<!-- Bootstrap style responsive -->
+	<link href="${pageContext.request.contextPath }/resources/user/themes/css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="${pageContext.request.contextPath }/resources/user/themes/css/font-awesome.css" rel="stylesheet"
+		type="text/css">
+	<!-- Google-code-prettify -->
+	<link href="${pageContext.request.contextPath }/resources/user/themes/js/google-code-prettify/prettify.css"
+		rel="stylesheet" />
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/user/themes/images/ico/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144"
+		href="${pageContext.request.contextPath }/resources/user/themes/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114"
+		href="${pageContext.request.contextPath }/resources/user/themes/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72"
+		href="${pageContext.request.contextPath }/resources/user/themes/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed"
+		href="${pageContext.request.contextPath }/resources/user/themes/images/ico/apple-touch-icon-57-precomposed.png">
+	<style type="text/css" id="enject"></style>
 </head>
 <body>
 	<div id="header">
@@ -363,9 +364,17 @@
 	<script src="${pageContext.request.contextPath }/resources/user/themes/js/jquery.js" type="text/javascript"></script>
 	<script src="${pageContext.request.contextPath }/resources/user/themes/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="${pageContext.request.contextPath }/resources/user/themes/js/google-code-prettify/prettify.js"></script>
-
+	
 	<script src="${pageContext.request.contextPath }/resources/user/themes/js/bootshop.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/user/themes/js/jquery.lightbox-0.5.js"></script>
+	<script type="text/javascript" >
+		$.ajaxSetup({
+		    headers: {
+		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+		});
+    </script>
+	<script src="${pageContext.request.contextPath }/resources/user/assets/user.js"></script>
 	<script type="text/javascript">
 		function onSignIn(googleUser){
 			var profile = googleUser.getBasicProfile();

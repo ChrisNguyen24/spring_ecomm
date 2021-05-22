@@ -26,20 +26,31 @@ public class MakeOrderController {
 
 	@RequestMapping(value = {"/order" },method = RequestMethod.GET)
 	 public String index(ModelMap model, HttpSession httpSession) { 
-		float total =0;
-		int qty = 0;
 		if(httpSession.getAttribute("cart")!=null) {
+			float total =0;
+			int qty = 0;
 			List<CartItem> ls = (List<CartItem>) httpSession.getAttribute("cart");
 			model.addAttribute("cartProduct",ls);
 			for(CartItem i:ls) {
 				total += i.getQuantity()*i.getItem().getPrice();
 				qty +=i.getQuantity();
 			}
+			model.addAttribute("qty", qty);
+			model.addAttribute("total", total);
+			return "home.order"; 
 		}
-		model.addAttribute("qty", qty);
-		model.addAttribute("total", total);
-		
-		return "home.order"; 
+		return "redirect:/cart";	
+//		return "home.order"; 
+	 }
+	 
+	
+	@RequestMapping(value = {"/order-success" },method = RequestMethod.GET)
+	 public String ordered(HttpSession httpSession) { 
+		if(httpSession.getAttribute("cart")!=null) {
+			httpSession.removeAttribute("cart");
+			return "home.order-success"; 
+		}
+		return "redirect:/cart";		
 	 }
 	 
 //	@RequestMapping("addCart/{id}")

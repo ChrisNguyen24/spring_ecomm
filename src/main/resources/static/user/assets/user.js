@@ -1,23 +1,3 @@
-$(function() {
-    // Side Bar Toggle
-    $('.hide-sidebar').click(function() {
-	  $('#sidebar').hide('fast', function() {
-	  	$('#content').removeClass('span9');
-	  	$('#content').addClass('span12');
-	  	$('.hide-sidebar').hide();
-	  	$('.show-sidebar').show();
-	  });
-	});
-
-	$('.show-sidebar').click(function() {
-		$('#content').removeClass('span12');
-	   	$('#content').addClass('span9');
-	   	$('.show-sidebar').hide();
-	   	$('.hide-sidebar').show();
-	  	$('#sidebar').show('fast');
-	});
-});
-
 $(document).ready(function () {
 	try {
 		initEvents();
@@ -56,7 +36,7 @@ function initEvents(){
             var data = {};
             $.ajax({
                 type: 'POST',
-                url: '/master/z003/getAll',
+                url: '',
                 dataType: 'html',
                 loading: true,
                 data: data,
@@ -73,40 +53,52 @@ function initEvents(){
         }
     }    
    	
-    
-    $('#get-all-order').on('click', function(){
-        try {
-        	var data = {};
-        	$("#order-list").empty();
+    var createOrder = function(){
+		try {
             $.ajax({
-                type:'GET',
-                url : 'http://localhost:8008/master/api/v1/getOrders',
+                type:'post',
+                url : '',
+                dataType: 'json',
+                loading: true,
+                data: $('#form-order').serialize(),
                 success: function(res){
-                	console.log(res);
-                	for(var i=0;i<res.length;i++){
-                		$("#order-list").append(`               		
-	                		<tr class="gradeA odd">
-								<td class="  sorting_1">${res[i].name}</td>
-								<td class=" ">${res[i].phone}</td>
-								<td class=" ">${res[i].address}</td>
-								<td class="center ">${res[i].email}</td>
-								<td class="center ">${res[i].quantity}</td>
-								<td class="center ">${res[i].total}</td>
-								<td class="center ">
-									<button class="btn btn-success btn-mini">Edit</button>
-									<a href="/remove-order/${res[i].id}" class="btn btn-danger btn-mini" onclick="return confirm('Are you sure ?')">Delete</a>
-								</td>
-							</tr>
-                		`);
-                	}
-					                   
+                    console.log(res)
+                    console.log(res.status=="200");
+                    if(res.status=="200"){
+                        window.location.reload();
+                    }               
                 }
             })
-         	/*$("#order-list").empty();*/
         } catch (e) {
             alert('' + e.message);
         }
-                        
-    })
-     
+	}
+	$("#testform").on('click',function(){
+		var data ={};
+		data.name = $('#name-order').val();
+		data.phone = $('#phone-order').val();
+		data.address = $('#address-order').val();
+		data.email = $('#email-order').val();
+		data.date = $('#date-order').val();
+		data.quantity = parseInt($('#quantity-order').val());
+		data.total = $('#total-order').val()+"";
+		data.note = "COD "+$('#note-order').val();
+		fetch('http://localhost:8008/master/api/v1/createOrder', {
+		  method: 'POST', // or 'PUT'
+		  headers: {
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify(data),
+		})
+		.then(function(response){ console.log(response) })
+		.then(data => {
+			var timer = setTimeout(function() {
+	            window.location='http://localhost:9091//order-success';
+	         }, 2000);
+		  console.log('Success:', data);
+		})
+		.catch((error) => {
+		  console.error('Error:', error);
+		});
+	});
 }
