@@ -27,30 +27,71 @@ $(document).ready(function () {
 });
 
 function initEvents(){
-	/*$('#').on('click', function(){
-        $('#form-order').submit(function(ev){
-            ev.preventDefault();
-            try {
-                $.ajax({
-                    type:'post',
-                    url : '/master/z003/create',
-                    dataType: 'json',
-                    loading: true,
-                    data: $('#form-order').serialize(),
-                    success: function(res){
-                        console.log(res)
-                        console.log(res.status=="200");
-                        if(res.status=="200"){
-                            window.location.reload();
-                        }               
-                    }
-                })
-            } catch (e) {
-                alert('' + e.message);
-            }
-        })
-                        
-    })*/
+
+    var timer = setTimeout(function() {
+	        try {
+        	var data = {};
+        	$("#order-list").empty();
+            $.ajax({
+                type:'GET',
+                url : 'http://localhost:8008/master/api/v1/getOrders',
+                success: function(res){
+                	console.log(res);
+                	for(var i=0;i<res.length;i++){
+                		$("#order-list").append(`               		
+	                		<tr class="gradeA odd">
+								<td class="  sorting_1">${res[i].name}</td>
+								<td class=" ">${res[i].phone}</td>
+								<td class=" ">${res[i].address}</td>
+								<td class="center ">${res[i].email}</td>
+								<td class="center ">${res[i].quantity}</td>
+								<td class="center ">${res[i].total}</td>
+								<td class="center ">
+									<input type="hidden" name="custId" value="${res[i].id}">
+									<button class="btn btn-success btn-mini">Edit</button>
+									<span class="btn btn-danger btn-mini delete-order" data-id="${res[i].id}">Delete</span>
+								</td>
+							</tr>
+                		`);
+                	}
+                	$(".delete-order").on('click',function(){
+						var idOrder = this.dataset.id;
+						deleteOrder(idOrder);
+					})
+                }
+            })
+         	/*$("#order-list").empty();*/
+        } catch (e) {
+            alert('' + e.message);
+        }
+	}, 500);
+	var deleteOrder = function(idOrder){
+		alert("Delete order !");
+		var data ={};
+		data.id = idOrder;
+		
+		fetch('http://localhost:8008/master/api/v1/deleteOrder', {
+		  method: 'POST', // or 'PUT'
+		  headers: {
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify(data),
+		})
+		.then(function(response){ console.log(response) })
+		.then(data => {
+			setTimeout(function() {
+				console.log('Success:', data);
+				window.location.reload();
+				//window.location='http://localhost:9091/admin/orders'
+			},2000)
+			
+		})
+		.catch((error) => {
+		  console.error('Error:', error);
+		});
+	}
+	
+    
     var getAll = function getListContent() {
         try {
             var data = {};
@@ -72,7 +113,6 @@ function initEvents(){
             alert('' + e.message);
         }
     }    
-   	
     
     $('#get-all-order').on('click', function(){
         try {

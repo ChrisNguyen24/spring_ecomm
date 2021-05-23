@@ -1,5 +1,6 @@
 package com.example.demo.controller.user;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -48,6 +49,8 @@ public class MakeOrderController {
 	 public String ordered(HttpSession httpSession) { 
 		if(httpSession.getAttribute("cart")!=null) {
 			httpSession.removeAttribute("cart");
+			List<CartItem> cart = new ArrayList<>();
+			httpSession.setAttribute("cart", cart);
 			return "home.order-success"; 
 		}
 		return "redirect:/cart";		
