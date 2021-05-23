@@ -115,13 +115,13 @@
 							<div class="control-group">
 								<label class="control-label"><strong> Quantity: </strong> </label>
 								<div class="controls">
-									<input disabled name="quantity" type="text" placeholder="qty" value="<c:out value="${qty}"  />" id="quantity-order" >
+									<input disabled name="quantity" class="input-medium" type="text" placeholder="qty" value="<c:out value="${qty}"  />" id="quantity-order" >
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label"><strong> Total: </strong> </label>
 								<div class="controls">
-									<input disabled name="total" type="text" placeholder="qty" value="<c:out value="${total}" />" id="total-order" >					
+									<input disabled name="total" class="input-medium" type="text" placeholder="qty" value="<c:out value="${total}" />" id="total-order" >					
 								</div>
 							</div>
 							<div class="control-group">
@@ -149,58 +149,7 @@
 	
 			</tbody>
 		</table>
-		<%-- <table class="table table-bordered">
-			<tbody>
-				<tr>
-					<th>VOUCHERS</th>
-				</tr>
-				<tr>
-					<td>
-						<form class="form-horizontal">
-							<div class="control-group">
-								<label class="control-label"><strong> CODE: </strong> </label>
-								<div class="controls">
-									<input type="text" class="input-medium" placeholder="CODE">
-									<button type="submit" class="btn">ADD</button>
-								</div>
-							</div>
-						</form>
-					</td>
-				</tr>
-	
-			</tbody>
-		</table> --%>
-
-		<!-- <table class="table table-bordered">
-			<tbody>
-				<tr>
-					<th>SHIPMENT</th>
-				</tr>
-				<tr>
-					<td>
-						<form class="form-horizontal">
-							<div class="control-group">
-								<label class="control-label" for="inputCountry">Address </label>
-								<div class="controls">
-									<input type="text" id="inputCountry" placeholder="Country">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="inputPost">Adderss 2</label>
-								<div class="controls">
-									<input type="text" id="inputPost" placeholder="Postcode">
-								</div>
-							</div>
-							<div class="control-group">
-								<div class="controls">
-									<button type="submit" class="btn">ESTIMATE</button>
-								</div>
-							</div>
-						</form>
-					</td>
-				</tr>
-			</tbody>
-		</table> -->
+		
 		<table class="table table-bordered">
 			<tbody>
 				<tr>
@@ -208,15 +157,20 @@
 				</tr>
 				<tr>
 					<td>
-						<form class="form-horizontal">
+						<form class="form-horizontal" method="post" action="/pay">
 							<div class="control-group">
-								
+
 							</div>
 							<div class="control-group">
 								<label class="control-label" >Click to pay with Paypal </label>
+								<label class="control-label"><strong> Total: </strong> </label>
+								<div class="controls">
+									<input name="price" type="text" placeholder="qty" value="${total}" id="total-order" >					
+								</div>
 								<div class="controls">
 									<button type="submit" class="btn btn-primary">PAYPAL</button>
 								</div>
+								
 							</div> 
 						</form>
 					</td>

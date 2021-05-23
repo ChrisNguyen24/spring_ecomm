@@ -9,6 +9,7 @@ import com.example.demo.entity.User;
 @SpringBootApplication
 public class DemoEcomApplication {
 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoEcomApplication.class, args);
 	}
