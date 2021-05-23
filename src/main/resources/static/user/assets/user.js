@@ -82,7 +82,13 @@ function initEvents(){
 		data.date = $('#date-order').val();
 		data.quantity = parseInt($('#quantity-order').val());
 		data.total = $('#total-order').val()+"";
-		data.note = "COD "+$('#note-order').val();
+		if($('#paypal').val()=="1"){
+			data.note = "Paypal "+$('#note-order').val();
+		}
+		else{
+			data.note = "COD "+$('#note-order').val();
+		}
+		
 		fetch('http://localhost:8008/master/api/v1/createOrder', {
 		  method: 'POST', // or 'PUT'
 		  headers: {

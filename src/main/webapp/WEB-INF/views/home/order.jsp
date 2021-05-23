@@ -165,11 +165,26 @@
 								<label class="control-label" >Click to pay with Paypal </label>
 								<label class="control-label"><strong> Total: </strong> </label>
 								<div class="controls">
-									<input name="price" type="text" placeholder="qty" value="${total}" id="total-order" >					
+									<input name="price" type="text" placeholder="qty" value="${total}" id="total-order" >	
+									<input name="price" type="hidden"  placeholder="qty" value="${paypal}" id="paypal" >					
 								</div>
-								<div class="controls">
-									<button type="submit" class="btn btn-primary">PAYPAL</button>
-								</div>
+								
+								<c:if test = "${paypal == 0}">
+						        	<div class="controls">
+										<button type="submit" class="btn btn-lg btn-primary">PAYPAL</button>
+									</div>
+						      	</c:if>
+						      	
+								<!-- <div class="controls">
+									<button type="submit" class="btn btn-lg btn-primary">PAYPAL</button>
+								</div> -->
+								
+								<c:if test = "${paypal == 1}">
+						        	<div class="alert alert-success" style="margin-top:10px;">
+								        <button type="button" class="close" data-dismiss="alert">×</button>
+								        <strong>Well done!</strong> Your Paypal payment is successful.
+								    </div>
+						      	</c:if>
 								
 							</div> 
 						</form>

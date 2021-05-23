@@ -27,6 +27,7 @@ public class MakeOrderController {
 
 	@RequestMapping(value = {"/order" },method = RequestMethod.GET)
 	 public String index(ModelMap model, HttpSession httpSession) { 
+		int paypal =0;
 		if(httpSession.getAttribute("cart")!=null) {
 			float total =0;
 			int qty = 0;
@@ -38,6 +39,7 @@ public class MakeOrderController {
 			}
 			model.addAttribute("qty", qty);
 			model.addAttribute("total", total);
+			model.addAttribute("paypal", paypal);
 			return "home.order"; 
 		}
 		return "redirect:/cart";	
