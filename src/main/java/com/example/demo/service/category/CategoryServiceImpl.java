@@ -68,10 +68,5 @@ public class CategoryServiceImpl implements CategoryService {
 	public void deleteAll() {
 		categoryRespository.deleteAll();
 	}
-
-	
-		
-	
-	
 	
 }

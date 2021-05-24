@@ -18,43 +18,9 @@
 			</a>
 			<div id="differentview" class="moreOptopm carousel slide">
 				<div class="carousel-inner">
-					<%-- <div class="item active">
-						<a
-							href="${pageContext.request.contextPath }/resources/user/themes/images/products/large/1.jpg">
-							<img style="width: 29%" src="themes/images/products/large/f1.jpg"
-							alt="">
-						</a> <a
-							href="${pageContext.request.contextPath }/resources/user/themes/images/products/large/2.jpg">
-							<img style="width: 29%" src="themes/images/products/large/f2.jpg"
-							alt="">
-						</a> <a
-							href="${pageContext.request.contextPath }/resources/user/themes/images/products/large/3.jpg">
-							<img style="width: 29%" src="themes/images/products/large/f3.jpg"
-							alt="">
-						</a>
-					</div>
-					<div class="item">
-						<a
-							href="${pageContext.request.contextPath }/resources/user/themes/images/products/large/3.jpg">
-							<img style="width: 29%" src="themes/images/products/large/f3.jpg"
-							alt="">
-						</a> <a
-							href="${pageContext.request.contextPath }/resources/user/themes/images/products/large/1.jpg">
-							<img style="width: 29%" src="themes/images/products/large/f1.jpg"
-							alt="">
-						</a> <a
-							href="${pageContext.request.contextPath }/resources/user/themes/images/products/large/2.jpg">
-							<img style="width: 29%" src="themes/images/products/large/f2.jpg"
-							alt="">
-						</a>
-					</div> --%>
+				
 				</div>
-				<!--  
-			  <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-              <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a> 
-			  -->
 			</div>
-
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<span class="btn"><i class="icon-envelope"></i></span> <span
@@ -62,7 +28,8 @@
 						class="icon-zoom-in"></i></span> <span class="btn"><i
 						class="icon-star"></i></span> <span class="btn"><i
 						class=" icon-thumbs-up"></i></span> <span class="btn"><i
-						class="icon-thumbs-down"></i></span>
+						class="icon-thumbs-down"></i>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -86,15 +53,7 @@
 			<h4><c:out value="${item.stock}" /> items in stock</h4>
 			<form class="form-horizontal qtyFrm pull-right">
 				<div class="control-group">
-					<%-- <label class="control-label"><span>Color</span></label>
-					<div class="controls">
-						<select class="span2">
-							<option>Black</option>
-							<option>Red</option>
-							<option>Blue</option>
-							<option>Brown</option>
-						</select>
-					</div> --%>
+					
 				</div>
 			</form>
 			<hr class="soft clr">
@@ -111,38 +70,44 @@
 				<li><a href="#comment" data-toggle="tab">Comment Rating</a></li>
 			</ul>
 			<div id="myTabContent" class="tab-content">
-			
 				<div class="tab-pane fade" id="comment">
+				
+				<div class="col-md-8">
+                  <div class="page-header">
+                    <h1><small class="pull-right">45 comments</small> Comments </h1>
+                  </div> 
+                   <div class="comments-list">
+	                   <c:forEach var="row" items="${listComment}">
+		                   <div class="media">
+		                     <p class="pull-right"><small><c:out value="${row.date}" /></small></p>
+		                      <a class="media-left" href="#">
+		                        <img src="">
+		                      </a>
+		                      <div class="media-body">
+		                          
+		                        <h4 class="media-heading user_name"><c:out value="${row.username}" /></h4>
+		                        <c:out value="${row.description}" />
+		                        
+		                        <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+		                      </div>
+	                    	</div>
+					   </c:forEach>
+                   </div>
+                </div>
 					<h4>Product Comment</h4>
-
 					<div class="span4">
-						<h4>Create comment</h4>
-						<form class="form-horizontal">
+						<h4>Write your comment</h4>
+						<s:form class="form-horizontal" action="${pageContext.request.contextPath }/add-comment" modelAttribute="comment" >
 							<fieldset>
 								<div class="control-group">
-
-									<input type="text" placeholder="name" class="input-xlarge">
-
+									<s:input path="username"  type="hidden"   />
+									<s:input  path="date"  type="hidden"  />								
+									<s:input path="item.id"  type="hidden"  ></s:input>
+									<s:textarea path="description" rows="5" id="textarea"  style="width:700px"></s:textarea>
 								</div>
-								<div class="control-group">
-
-									<input type="text" placeholder="email" class="input-xlarge">
-
-								</div>
-								<div class="control-group">
-
-									<input type="text" placeholder="subject" class="input-xlarge">
-
-								</div>
-								<div class="control-group">
-									<textarea rows="3" id="textarea" class="input-xlarge"></textarea>
-
-								</div>
-
 								<button class="btn btn-large" type="submit">Sent Comment</button>
-
 							</fieldset>
-						</form>
+						</s:form>
 					</div>
 
 				</div>

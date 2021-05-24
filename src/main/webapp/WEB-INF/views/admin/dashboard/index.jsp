@@ -10,8 +10,7 @@
 		<div class="block-content collapse in">
 			<div class="span12">
 				<div class="table-toolbar">
-					<div class="btn-group">
-												
+					<div class="btn-group">					
 						<li class="">
 							<a href="#category" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn btn-success">Add New  <i class="icon-plus icon-white"></i></span></a>
 							<div id="category" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true" style="display: none;">
@@ -36,8 +35,6 @@
 								  <button type="submit" class="btn btn-success" style="margin-right:10px">Save</button> 
 								  
 								</s:form>		
-								
-								
 							  </div>
 							</div>
 						</li>

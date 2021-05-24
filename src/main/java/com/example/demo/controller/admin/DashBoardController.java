@@ -18,7 +18,6 @@ import com.example.demo.entity.Item;
 import com.example.demo.service.category.CategoryService;
 
 @Controller
-
 public class DashBoardController {
 	
 	@Autowired
@@ -49,7 +48,6 @@ public class DashBoardController {
 		if(session.getAttribute("admin")==null || session.getAttribute("admin")=="" ) {
 			return "redirect:/admin/login";
 		}
-		
 		categoryService.save(category);
 		System.out.println("saved "+category.getName() + category.getDescription() +category.getIsActive());
 		return "redirect:/admin/dashboard";

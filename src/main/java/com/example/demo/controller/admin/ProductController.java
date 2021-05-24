@@ -22,6 +22,7 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.entity.Category;
+import com.example.demo.entity.Comment;
 import com.example.demo.entity.Item;
 import com.example.demo.service.category.CategoryService;
 //
@@ -46,7 +47,6 @@ public class ProductController implements ServletContextAware{
 		
 		List<Item> items = itemService.findAll();
 		model.addAttribute("Items",items);	
-		
 		Item i = new Item();
 		model.addAttribute("item", i);
 		model.addAttribute("categories",categoryService.findAll());

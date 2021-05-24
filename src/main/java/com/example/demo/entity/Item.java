@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -40,6 +42,9 @@ public class Item implements Serializable{
 	@JoinColumn(name = "category_id")
 	private Category category;
 
+	@OneToMany(mappedBy = "item",cascade = CascadeType.ALL)
+	private List<Comment> comment;
+	
 	public Item(int id, String title, String description, float price, String path, int stock) {
 		super();
 		this.id = id;
@@ -113,6 +118,14 @@ public class Item implements Serializable{
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	
+	public List<Comment> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
 	}
 
 	@Override
