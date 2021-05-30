@@ -74,7 +74,7 @@
 				
 				<div class="col-md-8">
                   <div class="page-header">
-                    <h1><small class="pull-right">45 comments</small> Comments </h1>
+                    <h1><small class="pull-right">${listComment.size()} comments</small> Comments </h1>
                   </div> 
                    <div class="comments-list">
 	                   <c:forEach var="row" items="${listComment}">

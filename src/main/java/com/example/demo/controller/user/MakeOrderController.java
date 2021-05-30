@@ -57,6 +57,19 @@ public class MakeOrderController {
 		}
 		return "redirect:/cart";		
 	 }
+	
+	@RequestMapping(value = {"/order-list" },method = RequestMethod.GET)
+	 public String getOrder(HttpSession httpSession) { 
+		if(httpSession.getAttribute("cart")==null) {
+			httpSession.removeAttribute("cart");
+			List<CartItem> cart = new ArrayList<>();
+			httpSession.setAttribute("cart", cart);
+			return "home.orderlist"; 
+		}
+		return "home.orderlist"; 
+		//return "redirect:/cart";		
+	 }
+	 
 	 
 //	@RequestMapping("addCart/{id}")
 //	public String toCart(

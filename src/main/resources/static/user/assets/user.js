@@ -73,6 +73,47 @@ function initEvents(){
             alert('' + e.message);
         }
 	}
+	
+	var timer1 = setTimeout(function() {
+	        try {
+        	var data = {};
+        	$("#order-history").empty();
+            $.ajax({
+                type:'GET',
+                url : 'http://localhost:8008/master/api/v1/getOrders',
+                success: function(res){
+                	console.log(res);
+                	for(var i=0;i<res.length;i++){
+                		$("#order-history").append(`               		
+	                		<tr class="gradeA odd">
+								<td class="  sorting_1">${res[i].name}</td>
+								<td class=" ">${res[i].phone}</td>
+								<td class=" ">${res[i].address}</td>
+								<td class="center ">${res[i].email}</td>
+								<td class="center ">${res[i].quantity}</td>
+								<td class="center ">${res[i].total}</td>
+								<td class="center ">
+									<input type="hidden" name="custId" value="${res[i].id}">
+									<button class="btn btn-success btn-mini">Edit</button>
+									<span class="btn btn-danger btn-mini delete-order" data-id="${res[i].id}">Delete</span>
+								</td>
+							</tr>
+                		`);
+                	}
+                	$(".delete-order").on('click',function(){
+						var idOrder = this.dataset.id;
+						deleteOrder(idOrder);
+					})
+                }
+            })
+         	/*$("#order-list").empty();*/
+        } catch (e) {
+            alert('' + e.message);
+        }
+	}, 00);
+	
+	
+	
 	$("#testform").on('click',function(){
 		var data ={};
 		data.name = $('#name-order').val();

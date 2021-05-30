@@ -105,7 +105,7 @@
 					<ul id="topMenu" class="nav pull-right">
 						<li class=""><a href="special_offer.html">Specials Offer</a></li>
 						<li class=""><a href="normal.html">Delivery</a></li>
-						<li class=""><a href="contact.html">Contact</a></li>
+						<li class=""><a href="/order-list">History</a></li>
 						
 						<% 
 							if(user =="" || user == null){
@@ -160,6 +160,9 @@
 		</div>
 	</div>
 	<!-- Header End====================================================================== -->
+	
+	<% if(user =="" || user == null){ %>
+	
 	<div id="carouselBlk">
 		<div id="myCarousel" class="carousel slide">
 			<div class="carousel-inner">
@@ -243,6 +246,9 @@
 				data-slide="next">&rsaquo;</a>
 		</div>
 	</div>
+	<!-- endSlider -->
+	<%	}	%>
+	
 	<div id="mainBody">
 		<div class="container">
 			<div class="row">

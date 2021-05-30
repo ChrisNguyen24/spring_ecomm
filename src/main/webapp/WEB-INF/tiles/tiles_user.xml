@@ -29,6 +29,9 @@
     <definition name="home.order-success" extends="template_user">
         <put-attribute name="content" value="/WEB-INF/views/home/order_success.jsp" />
     </definition>
+    <definition name="home.orderlist" extends="template_user">
+        <put-attribute name="content" value="/WEB-INF/views/home/order-list.jsp" />
+    </definition>
     
 </tiles-definitions>
                 

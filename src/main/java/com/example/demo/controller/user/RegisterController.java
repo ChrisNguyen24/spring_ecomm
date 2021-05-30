@@ -20,7 +20,10 @@ public class RegisterController {
 	AccountService accountService;
 	
 	@RequestMapping("/register")
-	public String index(ModelMap model) { 
+	public String index(ModelMap model, HttpSession session) {
+		if(session.getAttribute("username")!=null) {
+			return "redirect:/";
+		}
 		Account account = new Account();
 		model.addAttribute("account", account);
 		return "home.register"; 
