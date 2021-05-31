@@ -159,7 +159,7 @@
                             <a href="/admin/orders" ><i class="icon-chevron-right"></i> <span class="badge badge-info pull-right">27</span> Order</a>
                         </li>
                         <li>
-                            <a href="form.html"><i class="icon-chevron-right"></i> Shipment</a>
+                            <a href="/admin/sale-products"><i class="icon-chevron-right"></i>Sale Products</a>
                         </li>
                         <li >
                             <a href="tables.html"><i class="icon-chevron-right"></i> Comment</a>

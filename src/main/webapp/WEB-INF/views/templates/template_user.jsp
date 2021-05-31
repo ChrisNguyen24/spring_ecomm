@@ -103,7 +103,7 @@
 						<button type="submit" id="submitButton" class="btn btn-primary">Go</button>
 					</form>
 					<ul id="topMenu" class="nav pull-right">
-						<li class=""><a href="special_offer.html">Specials Offer</a></li>
+						<li class=""><a href="/hot-item">Specials Offer</a></li>
 						<li class=""><a href="normal.html">Delivery</a></li>
 						<li class=""><a href="/order-list">History</a></li>
 						

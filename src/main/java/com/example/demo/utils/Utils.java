@@ -20,4 +20,9 @@ public class Utils {
 	    }
 	    return url.toString();
 	}
+	
+	public static final String END_POINT_URL = "https://s3.us-east-2.amazonaws.com";
+	public static final String ACCESS_KEY = "AKIA3XBVVNJQC7X5WLPZ";
+	public static final String SECRET_KEY = "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";
+	public static final String BUCKET_NAME = "congnguyen-bucket";
 }

@@ -32,6 +32,9 @@
     <definition name="home.orderlist" extends="template_user">
         <put-attribute name="content" value="/WEB-INF/views/home/order-list.jsp" />
     </definition>
+    <definition name="home.hotitem" extends="template_user">
+        <put-attribute name="content" value="/WEB-INF/views/home/hot-item.jsp" />
+    </definition>
     
 </tiles-definitions>
                 
